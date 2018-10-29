@@ -1,6 +1,6 @@
 {
   "name": "native-browser-deps",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Chromium embedded framework builds for Node.js",
   "main": "index.js",
   "directories": {
