@@ -19,5 +19,9 @@
   "bugs": {
     "url": "https://github.com/modulesio/node-native-browser-deps/issues"
   },
-  "homepage": "https://github.com/modulesio/node-native-browser-deps#readme"
+  "homepage": "https://github.com/modulesio/node-native-browser-deps#readme",
+  "dependencies": {
+    "rimraf": "^2.6.2",
+    "unzipper": "^0.9.4"
+  }
 }
