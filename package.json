@@ -1,0 +1,22 @@
+{
+  "name": "native-browser-deps",
+  "version": "0.0.1",
+  "description": "Chromium embedded framework builds for Node.js",
+  "main": "index.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/modulesio/node-native-browser-deps.git"
+  },
+  "author": "Avaer Kazmer <a@modules.io>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/modulesio/node-native-browser-deps/issues"
+  },
+  "homepage": "https://github.com/modulesio/node-native-browser-deps#readme"
+}
