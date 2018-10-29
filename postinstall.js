@@ -22,7 +22,7 @@ const rimraf = require('rimraf');
         } else if (process.env['ANDROID'] !== undefined) {
           return 'android';
         } else {
-          return ;
+          return os.platform();
         }
       })();
       switch (platform) {
