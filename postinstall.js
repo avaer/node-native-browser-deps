@@ -94,37 +94,41 @@ const splitFiles = ['lib4.zip'];
 
   if (splitFiles.includes(lib)) {
     fs.readdir(__dirname, (err, files) => {
-      files = files
-        .filter(f => f.startsWith(lib))
-        .sort();
+      if (!err) {
+        files = files
+          .filter(f => f.startsWith(lib))
+          .sort();
 
-      const libPath = path.join(__dirname, lib);
-      const _recurse = (i = 0) => {
-        if (i < files.length) {
-          const file = files[i];
-          const filePath = path.join(__dirname, file);
-          const rs = fs.createReadStream(filePath);
-          const ws = fs.createWriteStream(libPath, {
-            flags: (i === 0) ? 'w' : 'a',
-          });
-          rs.pipe(ws);
-          ws.on('finish', () => {
-            rimraf(filePath, err => {
-              if (err) {
-                throw err;
-              }
+        const libPath = path.join(__dirname, lib);
+        const _recurse = (i = 0) => {
+          if (i < files.length) {
+            const file = files[i];
+            const filePath = path.join(__dirname, file);
+            const rs = fs.createReadStream(filePath);
+            const ws = fs.createWriteStream(libPath, {
+              flags: (i === 0) ? 'w' : 'a',
             });
+            rs.pipe(ws);
+            ws.on('finish', () => {
+              rimraf(filePath, err => {
+                if (err) {
+                  throw err;
+                }
+              });
 
-            _recurse(i + 1);
-          });
-          ws.on('error', err => {
-            throw err;
-          });
-        } else {
-          _unpack();
-        }
-      };
-      _recurse();
+              _recurse(i + 1);
+            });
+            ws.on('error', err => {
+              throw err;
+            });
+          } else {
+            _unpack();
+          }
+        };
+        _recurse();
+      } else {
+        throw err;
+      }
     });
   } else {
     _unpack();
