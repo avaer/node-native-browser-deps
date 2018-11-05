@@ -85,7 +85,7 @@ const splitFiles = ['lib4.zip'];
     });
     rs.on('error', err => {
       if (err.code === 'ENOENT') {
-        process.exit(0);
+        // process.exit(0);
       } else {
         throw err;
       }
