@@ -6,7 +6,7 @@ const rimraf = require('rimraf');
 
 const splitFiles = ['lib4.zip'];
 
-['lib.zip', 'lib2.zip', 'lib3.zip', 'lib4.zip'].map(lib => {
+['lib.zip', 'lib2.zip', 'lib3.zip', 'lib4.zip', 'lib5.zip'].map(lib => {
   const _unpack = () => {
     const rs = fs.createReadStream(path.join(__dirname, lib));
     rs.on('open', () => {
